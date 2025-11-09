@@ -21,7 +21,7 @@ input * {
 	xkb_options caps:hyper
 }
 
-output * bg ~/documents/git/swayconfig/wallpaper.jpg
+output * bg ~/documents/git/swayconfig/wallpaper.jpg fill
 output HDMI-A-3 {
 	transform 270
 	pos 0,0
