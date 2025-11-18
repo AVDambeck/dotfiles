@@ -67,6 +67,11 @@ mode "default" {
 	## page up and down
 	bindsym d exec wtype -P Next
 	bindsym Shift+d exec wtype -P Prior
+	# Special keys to adjust brightness via brightnessctl
+	bindsym --locked b exec brightnessctl set 5%-
+	bindsym --locked Shift+b exec brightnessctl set 5%+
+
+
 
     	# Movement
         bindsym $left focus left
