@@ -63,7 +63,7 @@ mode "default" {
 	## Screenshot
        	bindsym p exec grim -g "$(slurp)" - | swappy -f - -o ~/temp/$(date +%y-%m-%d_%h:%m:%S).png
 	## edit config
-	bindsym c exec $term -e vim .config/sway/config; mode "interaction mode"
+	# bindsym c exec $term -e vim .config/sway/config; mode "interaction mode"
 	## page up and down
 	bindsym d exec wtype -P Next
 	bindsym Shift+d exec wtype -P Prior
