@@ -36,7 +36,7 @@ client.focused_inactive $color_gray $color_background $color_text
 bar {
     position bottom
 
-    status_command while date +'%Y-%m-%d %R'; do sleep 1; done
+    status_command while echo -e $(mpc current -f %artist%) - $(mpc current -f %album%) - $(mpc current -f %title%) - $(mpc status  %currenttime%/%totaltime%) - $(mpc current -f %position%)/$(mpc playlist | wc -l) \| $(date +'%Y-%m-%d %R') \|; do sleep 1; done
 
     colors {
         statusline $color_text
