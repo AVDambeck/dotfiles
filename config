@@ -3,7 +3,7 @@ exec mpd
 
 # Var
 set $term alacritty
-set $menu wofi --show=drun --lines=5 --prompt==""
+set $menu wofi --show=drun --lines=5 --prompt=="" --style=~/documents/git/swayconfig/wofi.css
 
 set $left h
 set $down j
@@ -45,6 +45,8 @@ output $out-left {
 	transform 270
 	pos 0,0
 }
+focus_follows_mouse no
+
 # Color
 client.focused $color_primary $color_background $color_text
 client.unfocused $color_gray $color_background $color_text
