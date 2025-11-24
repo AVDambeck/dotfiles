@@ -85,8 +85,8 @@ mode "default" {
 	## edit config
 	# bindsym c exec $term -e vim .config/sway/config; mode "interaction mode"
 	## page up and down
-	bindsym q exec wtype -P Next
-	bindsym Shift+q exec wtype -P Prior
+	bindsym q exec wtype -P Down -P Down -P Down -P Down -P Down
+	bindsym Shift+q exec wtype -P Up -P Up -P Up -P Up -P Up
 	# Special keys to adjust brightness via brightnessctl
 	bindsym --locked b exec brightnessctl set 5%-
 	bindsym --locked Shift+b exec brightnessctl set 5%+
