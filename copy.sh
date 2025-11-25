@@ -1,1 +1,1 @@
-cp ~/documents/git/swayconfig/config ~/.config/sway/config
+cp -r ~/documents/git/dotfiles/config/* ~/.config/

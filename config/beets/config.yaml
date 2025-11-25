@@ -1,0 +1,18 @@
+directory: /run/media/carrieanne/musicdisk/music
+library: ~/documents/musiclibrary.db
+
+import:
+  copy: yes
+
+plugins:
+  - musicbrainz
+  - fetchart 
+  - bandcamp
+
+paths:
+    default: $albumartist/[$year] $album%aunique{}/$track $title
+    singleton: Non-Album/$artist/$title
+    comp: Compilations/$album%aunique{}/$track $title
+
+match:
+  strong_rec_thresh: 0.09
