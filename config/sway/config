@@ -47,6 +47,7 @@ output $out-left {
 	pos 0,0
 }
 focus_follows_mouse no
+for_window [floating] floating disable
 
 # Color
 client.focused $color_primary $color_background $color_text
@@ -58,7 +59,7 @@ client.focused_inactive $color_gray $color_background $color_text
 bar {
     position bottom
 
-    status_command while echo -e $(if [ "$(mpc current)" != "" ]; then echo \| $(mpc current -f %artist%) - $(mpc current -f %album%) - $(mpc current -f %title%) - $(mpc status  %currenttime%/%totaltime%) - $(mpc current -f %position%)/$(mpc playlist | wc -l); fi) \| $(pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | cut -d'/' -f2) \| $(date +'%Y-%m-%d | %R') \|; do sleep 1; done
+	status_command ~/documents/git/dotfiles/bar.sh
 
     colors {
         statusline $color_text
