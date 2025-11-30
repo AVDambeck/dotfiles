@@ -1,1 +1,2 @@
-yay -Q > temp; diff temp packages.txt; rm temp
+yay -Q > temp; diff temp packages.txt | less; rm temp
+
