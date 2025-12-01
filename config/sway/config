@@ -36,8 +36,8 @@ workspace "8" output $out-right
 workspace "9" output $out-right
 
 # Config
+seat * hide_cursor 1000
 seat * hide_cursor when-typing enable
-seat * hide_cursor 1
 input * {
 	xkb_options caps:hyper
 }
