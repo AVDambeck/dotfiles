@@ -24,16 +24,16 @@ workspace "1 music" output $out-left
 workspace "2 comms" output $out-left
 workspace "3 misc" output $out-left
 workspace "4 network" output $out-left
-workspace "0" output $out-right
+# workspace "0" output $out-right
 workspace "1" output $out-right
 workspace "2" output $out-right
 workspace "3" output $out-right
 workspace "4" output $out-right
-workspace "5" output $out-right
-workspace "6" output $out-right
-workspace "7" output $out-right
-workspace "8" output $out-right
-workspace "9" output $out-right
+# workspace "5" output $out-right
+# workspace "6" output $out-right
+# workspace "7" output $out-right
+# workspace "8" output $out-right
+# workspace "9" output $out-right
 
 # Config
 seat * hide_cursor 1000
@@ -75,93 +75,93 @@ bar {
 
 
 mode "default" {
-	# modes
-	bindsym i mode "interaction mode"
-        bindsym r mode "resize mode"
-	bindsym Space exec $menu; mode "interaction mode"
-
-        # Tools
- 	bindsym semicolon exec $term; mode "interaction mode"
-	bindsym Shift+x kill
-	## Screenshot
-       	bindsym p exec grim -g "$(slurp)" - | swappy -f - -o ~/temp/$(date +%y-%m-%d_%h:%m:%S).png
-	## edit config
-	# bindsym c exec $term -e vim .config/sway/config; mode "interaction mode"
-	## page up and down
-	bindsym q exec wtype -P Down -P Down -P Down -P Down -P Down
-	bindsym Shift+q exec wtype -P Up -P Up -P Up -P Up -P Up
-	# Special keys to adjust brightness via brightnessctl
-	bindsym b exec brightnessctl set 5%-
-	bindsym Shift+b exec brightnessctl set 5%+
-
-    	# Movement
-        bindsym $left focus left
-        bindsym $down focus down
-        bindsym $up focus up
-        bindsym $right focus right
-
-	bindsym Tab focus next
-	bindsym Shift+Tab focus prev
-
-        bindsym Shift+$left move left
-        bindsym Shift+$down move down
-        bindsym Shift+$up move up
-        bindsym Shift+$right move right
-
-        bindsym shift+s splith
-        bindsym v splitv
-
-        # Workspace
-        bindsym 0 workspace "0";
+	# Numberkeys
         bindsym 1 workspace "1";
         bindsym 2 workspace "2";
         bindsym 3 workspace "3";
         bindsym 4 workspace "4";
-        bindsym 5 workspace "5";
-        bindsym 6 workspace "6";
-        bindsym 7 workspace "7";
-        bindsym 8 workspace "8";
-        bindsym 9 workspace "9";
-
-	bindsym a workspace "1 music"
-	bindsym s workspace "2 comms"
-	bindsym d workspace "3 misc"
-	bindsym f workspace "4 network"
-
-        bindsym Shift+0 move container to workspace "0"
         bindsym Shift+1 move container to workspace "1"
         bindsym Shift+2 move container to workspace "2"
         bindsym Shift+3 move container to workspace "3"
         bindsym Shift+4 move container to workspace "4"
-        bindsym Shift+5 move container to workspace "5"
-        bindsym Shift+6 move container to workspace "6"
-        bindsym Shift+7 move container to workspace "7"
-        bindsym Shift+8 move container to workspace "8"
-        bindsym Shift+9 move container to workspace "9"
-
-	bindsym Alt+a move container to workspace "1 music"
-	bindsym Alt+s move container to workspace "2 comms"
-	bindsym Alt+d move container to workspace "3 misc"
-	bindsym Alt+f move container to workspace "4 network"
-
-	# Special keys to adjust volume via PulseAudio
-	# bindsym  exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+	bindsym 5 exec ""
+	bindsym 6 exec ""
+	bindsym 7 exec ""
+	bindsym 8 exec ""
+	bindsym 9 exec ""
+	bindsym 0 exec ""
+	bindsym minus exec ""
+	bindsym equal exec ""
+	# first row keys
+	bindsym q workspace "1 music"
+	bindsym w workspace "2 comms"
+	bindsym e workspace "3 misc"
+	bindsym r workspace "4 network"
+	bindsym Shift+q move container to workspace "1 music"
+	bindsym Shift+w move container to workspace "2 comms"
+	bindsym Shift+e move container to workspace "3 misc"
+	bindsym Shift+r move container to workspace "4 network"
+	bindsym t exec ""
+	bindsym y exec ""
 	bindsym u exec pactl set-sink-volume \@DEFAULT_SINK@ -10%
 	bindsym Shift+u exec pactl set-sink-volume \@DEFAULT_SINK@ +10%
-
-	# unbind
-	bindsym y exec ""
+	bindsym i exec brightnessctl set 5%-
+	bindsym Shift+i exec brightnessctl set 5%+
 	bindsym o exec ""
-	bindsym g exec ""
+       	bindsym p exec mpc toggle
+	bindsym shift+P exec grim -g "$(slurp)" - | swappy -f - -o ~/temp/$(date +%y-%m-%d_%h:%m:%S).png
+	# home row
+	bindsym a exec ""
+        bindsym s splitv
+        bindsym shift+s splith
+	bindsym d exec seq 15 | xargs -I {} wtype -P Down
+	bindsym shift+d exec seq 15 | xargs -I {} wtype -P Up
+	bindsym f mode "interaction mode"
+	bindsym $left focus left
+        bindsym $down focus down
+        bindsym $up focus up
+        bindsym $right focus right
+        bindsym Shift+$left move left
+        bindsym Shift+$down move down
+        bindsym Shift+$up move up
+        bindsym Shift+$right move right
+ 	bindsym semicolon exec $term; mode "interaction mode"
+	bindsym colon exec ""
+	bindsym apostrophe exec ""
+	# bottom row
 	bindsym z exec ""
-	bindsym x exec ""
+	bindsym Shift+x kill
 	bindsym c exec ""
+        bindsym v mode "resize mode"
+	bindsym b exec ""
 	bindsym n exec ""
 	bindsym m exec ""
-	bindsym w exec ""
-	bindsym t exec ""
-	bindsym colon exec ""
+	bindsym comma exec ""
+	bindsym period exec ""
 	bindsym slash exec ""
+
+	# extra 
+	bindsym Space exec $menu; mode "interaction mode"
+	bindsym Shift_R exec hexecute
+	bindsym Tab focus next
+	bindsym Shift+Tab focus prev
+
+
+
+        # Workspace
+        # bindsym 0 workspace "0";
+        # bindsym 5 workspace "5";
+        # bindsym 6 workspace "6";
+        # bindsym 7 workspace "7";
+        # bindsym 8 workspace "8";
+        # bindsym 9 workspace "9";
+        # bindsym Shift+0 move container to workspace "0"
+        # bindsym Shift+5 move container to workspace "5"
+        # bindsym Shift+6 move container to workspace "6"
+        # bindsym Shift+7 move container to workspace "7"
+        # bindsym Shift+8 move container to workspace "8"
+        # bindsym Shift+9 move container to workspace "9"
+
 }
 
 # Focus
@@ -183,6 +183,7 @@ mode "interaction mode" {
 	bindsym Mod4+$right focus right
 
 	# Tools
+	bindsym Shift_R exec hexecute
 	bindsym Alt+Tab focus next
 	bindsym Shift+Alt+Tab focus prev 
 	bindsym Mod4+Return exec $term
@@ -203,6 +204,7 @@ mode "resize mode" {
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym hyper_l mode "default"
 }
 
 # Arrow
