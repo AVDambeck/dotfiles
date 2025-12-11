@@ -16,3 +16,6 @@ paths:
 
 match:
   strong_rec_thresh: 0.09
+
+fetchart:
+  filesystem coverart itunes amazon albumart wikipedia
