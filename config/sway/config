@@ -65,8 +65,7 @@ bar {
 }
 
 default_border none
-gaps outer 20
-gaps inner 20
+gaps inner 40
 
 mode "default" {
 	# Numberkeys
