@@ -10,8 +10,7 @@
 }
 
 window#waybar {
-    background: rgba(0, 0, 0, 0);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%); 
     color: white;
 }
 
@@ -19,6 +18,7 @@ tooltip {
   background: rgba(43, 48, 59, 0.5);
   border: 1px solid rgba(100, 114, 125, 0.5);
 }
+
 tooltip label {
   color: white;
 }
@@ -31,8 +31,8 @@ tooltip label {
 }
 
 #workspaces button.focused {
-    background: #64727D;
-    border-bottom: 3px solid white;
+    background: rgba(255, 255, 255, 0);
+    border: 2px solid white;
 }
 
 #mode, #clock, #battery {
