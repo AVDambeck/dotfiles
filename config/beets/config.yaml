@@ -6,8 +6,9 @@ import:
 
 plugins:
   - musicbrainz
-  - fetchart 
+  #- fetchart 
   - bandcamp
+  - autobpm
 
 paths:
     default: $albumartist/[$year] $album%aunique{}/$track $title
@@ -17,5 +18,5 @@ paths:
 match:
   strong_rec_thresh: 0.09
 
-fetchart:
-  filesystem coverart itunes amazon albumart wikipedia
+#fetchart:
+#  filesystem coverart itunes amazon albumart wikipedia
