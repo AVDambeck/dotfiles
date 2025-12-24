@@ -42,13 +42,17 @@ input * {
 	xkb_options caps:hyper
 }
 
-output * bg ~/documents/git/dotfiles/wallpaper.jpg fill
+output $out-right {
+	bg ~/documents/git/dotfiles/wall-horz.jpg fill
+}
 output $out-left {
 	transform 270
 	pos 0,0
+	bg ~/documents/git/dotfiles/wall-vert.jpg fill
 }
 focus_follows_mouse no
 for_window [floating] floating disable
+
 
 # Color
 client.focused $color_primary $color_background $color_text
@@ -56,23 +60,13 @@ client.unfocused $color_gray $color_background $color_text
 client.focused_inactive $color_gray $color_background $color_text
 
 # Status Bar:
-# Read `man 5 sway-bar` for more information about this section.
 bar {
-    position bottom
-
-	status_command ~/documents/git/dotfiles/bar.sh
-
-	colors {
-		statusline $color_text
-		background $color_background
-		inactive_workspace $color_gray $color_background $color_text
-		active_workspace $color_primary $color_background $color_text
-		focused_workspace $color_primary $color_background $color_text
-		urgent_workspace $color_background $color_primary $color_text
-		binding_mode $color_gray $color_background $color_text
-	}
+	swaybar_command waybar
 }
 
+default_border none
+gaps outer 20
+gaps inner 20
 
 mode "default" {
 	# Numberkeys
