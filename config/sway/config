@@ -20,20 +20,15 @@ set $out-left HDMI-A-3
 set $out-right HDMI-A-2
 
 # Workspaces
-workspace "1 music" output $out-left
-workspace "2 comms" output $out-left
-workspace "3 misc" output $out-left
-workspace "4 network" output $out-left
-# workspace "0" output $out-right
-workspace "1" output $out-right
-workspace "2" output $out-right
-workspace "3" output $out-right
-workspace "4" output $out-right
-# workspace "5" output $out-right
-# workspace "6" output $out-right
-# workspace "7" output $out-right
-# workspace "8" output $out-right
-# workspace "9" output $out-right
+workspace "q" output $out-left
+workspace "w" output $out-left
+workspace "e" output $out-left
+workspace "r" output $out-left
+
+workspace "u" output $out-right
+workspace "i" output $out-right
+workspace "o" output $out-right
+workspace "p" output $out-right
 
 # Config
 seat * hide_cursor 1000
@@ -69,14 +64,10 @@ gaps inner 40
 
 mode "default" {
 	# Numberkeys
-        bindsym 1 workspace "1";
-        bindsym 2 workspace "2";
-        bindsym 3 workspace "3";
-        bindsym 4 workspace "4";
-        bindsym Shift+1 move container to workspace "1"
-        bindsym Shift+2 move container to workspace "2"
-        bindsym Shift+3 move container to workspace "3"
-        bindsym Shift+4 move container to workspace "4"
+        bindsym 1 exec ""
+        bindsym 2 exec ""
+        bindsym 3 exec ""
+        bindsym 4 exec ""
 	bindsym 5 exec ""
 	bindsym 6 exec ""
 	bindsym 7 exec ""
@@ -86,24 +77,27 @@ mode "default" {
 	bindsym minus exec ""
 	bindsym equal exec ""
 	# first row keys
-	bindsym q workspace "1 music"
-	bindsym w workspace "2 comms"
-	bindsym e workspace "3 misc"
-	bindsym r workspace "4 network"
-	bindsym Shift+q move container to workspace "1 music"
-	bindsym Shift+w move container to workspace "2 comms"
-	bindsym Shift+e move container to workspace "3 misc"
-	bindsym Shift+r move container to workspace "4 network"
+	bindsym q workspace "q"
+	bindsym w workspace "w"
+	bindsym e workspace "e"
+	bindsym r workspace "r"
+	bindsym Shift+q move container to workspace "q"
+	bindsym Shift+w move container to workspace "w"
+	bindsym Shift+e move container to workspace "e"
+	bindsym Shift+r move container to workspace "r"
 	bindsym t exec ""
 	bindsym y exec ""
-	bindsym u exec ""
-	bindsym i exec brightnessctl set 5%-
-	bindsym Shift+i exec brightnessctl set 5%+
-	bindsym o exec ""
-	bindsym p exec grim -g "$(slurp)" - | swappy -f - -o ~/temp/$(date +%y-%m-%d_%h:%m:%S).png
+        bindsym u workspace "u"
+        bindsym i workspace "i"
+        bindsym o workspace "o"
+        bindsym p workspace "p"
+        bindsym Shift+u move container to workspace "u"
+        bindsym Shift+i move container to workspace "i"
+        bindsym Shift+o move container to workspace "o"
+        bindsym Shift+p move container to workspace "p"
 	# home row
 	bindsym a mode "audio mode"
-        bindsym s splitv
+	bindsym s exec grim -g "$(slurp)" - | swappy -f - -o ~/temp/$(date +%y-%m-%d_%h:%m:%S).png
         bindsym shift+s splith
 	bindsym d exec seq 15 | xargs -I {} wtype -P Down
 	bindsym shift+d exec seq 15 | xargs -I {} wtype -P Up
@@ -124,7 +118,8 @@ mode "default" {
 	bindsym Shift+x kill
 	bindsym c exec ""
         bindsym v mode "resize mode"
-	bindsym b exec ""
+	bindsym b exec brightnessctl set 5%-
+	bindsym Shift+b exec brightnessctl set 5%+
 	bindsym n exec ""
 	bindsym m exec ""
 	bindsym comma exec ""
@@ -136,7 +131,6 @@ mode "default" {
 	bindsym Shift_R exec hexecute
 	bindsym Tab focus next
 	bindsym Shift+Tab focus prev
-
 
 
         # Workspace
