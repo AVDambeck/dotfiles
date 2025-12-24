@@ -103,15 +103,13 @@ mode "default" {
 	bindsym Shift+r move container to workspace "4 network"
 	bindsym t exec ""
 	bindsym y exec ""
-	bindsym u exec pactl set-sink-volume \@DEFAULT_SINK@ -10%
-	bindsym Shift+u exec pactl set-sink-volume \@DEFAULT_SINK@ +10%
+	bindsym u exec ""
 	bindsym i exec brightnessctl set 5%-
 	bindsym Shift+i exec brightnessctl set 5%+
 	bindsym o exec ""
-       	bindsym p exec mpc toggle
-	bindsym shift+P exec grim -g "$(slurp)" - | swappy -f - -o ~/temp/$(date +%y-%m-%d_%h:%m:%S).png
+	bindsym p exec grim -g "$(slurp)" - | swappy -f - -o ~/temp/$(date +%y-%m-%d_%h:%m:%S).png
 	# home row
-	bindsym a exec ""
+	bindsym a mode "audio mode"
         bindsym s splitv
         bindsym shift+s splith
 	bindsym d exec seq 15 | xargs -I {} wtype -P Down
@@ -192,6 +190,17 @@ mode "interaction mode" {
 
 	# Make the current focus fullscreen
 	bindsym Mod4+f fullscreen
+}
+
+# Audio 
+mode "audio mode" {
+	bindsym q exec pactl set-sink-volume \@DEFAULT_SINK@ 100%; mode "default"
+	bindsym w exec pactl set-sink-volume \@DEFAULT_SINK@ 80%; mode "default"
+	bindsym e exec pactl set-sink-volume \@DEFAULT_SINK@ 50%; mode "default"
+	bindsym r exec pactl set-sink-volume \@DEFAULT_SINK@ 00%; mode "default"
+	bindsym d exec pactl set-sink-volume \@DEFAULT_SINK@ -5%; mode "default"
+	bindsym f exec pactl set-sink-volume \@DEFAULT_SINK@ +5%; mode "default"
+       	bindsym p exec mpc toggle; mode "default"
 }
 
 # Resize
