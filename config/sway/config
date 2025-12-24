@@ -13,7 +13,7 @@ set $right l
 
 set $color_primary #E62100
 set $color_text #FFFFFF
-set $color_background #000000
+set $color_background #00000000
 set $color_gray #5C1A19
 
 set $out-left HDMI-A-3
@@ -55,7 +55,7 @@ for_window [floating] floating disable
 
 
 # Color
-client.focused $color_primary $color_background $color_text
+client.focused $color_primary $color_background $color_text $color_background $color_primary
 client.unfocused $color_gray $color_background $color_text
 client.focused_inactive $color_gray $color_background $color_text
 
@@ -64,7 +64,7 @@ bar {
 	swaybar_command waybar
 }
 
-default_border none
+default_border pixel 2
 gaps inner 40
 
 mode "default" {
