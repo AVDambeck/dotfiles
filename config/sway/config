@@ -121,14 +121,13 @@ mode "default" {
 	bindsym b exec brightnessctl set 5%-
 	bindsym Shift+b exec brightnessctl set 5%+
 	bindsym n exec ""
-	bindsym m exec ""
+	bindsym m exec hexecute
 	bindsym comma exec ""
 	bindsym period exec ""
 	bindsym slash exec ""
 
 	# extra 
 	bindsym Space exec $menu; mode "interaction mode"
-	bindsym Shift_R exec hexecute
 	bindsym Tab focus next
 	bindsym Shift+Tab focus prev
 
