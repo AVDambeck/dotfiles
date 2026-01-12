@@ -36,6 +36,7 @@ seat * hide_cursor when-typing enable
 input * {
 	xkb_options caps:hyper
 }
+input "type:tablet_tool" map_to_output $out-right
 
 output $out-right {
 	bg ~/documents/git/dotfiles/wall-horz.jpg fill
@@ -46,7 +47,7 @@ output $out-left {
 	bg ~/documents/git/dotfiles/wall-vert.jpg fill
 }
 focus_follows_mouse no
-for_window [floating] floating disable
+# for_window [floating] floating disable
 
 
 # Color
@@ -60,7 +61,8 @@ bar {
 }
 
 default_border pixel 2
-gaps inner 40
+gaps inner 30
+
 
 mode "default" {
 	# Numberkeys
@@ -102,6 +104,8 @@ mode "default" {
 	bindsym d exec seq 15 | xargs -I {} wtype -P Down
 	bindsym shift+d exec seq 15 | xargs -I {} wtype -P Up
 	bindsym f mode "interaction mode"
+	bindsym Shift+f fullscreen
+	bindsym g exec ""
 	bindsym $left focus left
         bindsym $down focus down
         bindsym $up focus up
@@ -120,13 +124,15 @@ mode "default" {
         bindsym v mode "resize mode"
 	bindsym b exec brightnessctl set 5%-
 	bindsym Shift+b exec brightnessctl set 5%+
-	bindsym n exec ""
-	bindsym m exec hexecute
+	bindsym n floating toggle
+	bindsym Shift+n focus floating
+	bindsym m exec ""
 	bindsym comma exec ""
 	bindsym period exec ""
 	bindsym slash exec ""
 
 	# extra 
+	bindsym --whole-window BTN_SIDE exec hexecute
 	bindsym Space exec $menu; mode "interaction mode"
 	bindsym Tab focus next
 	bindsym Shift+Tab focus prev
@@ -157,6 +163,7 @@ mode "interaction mode" {
 	# Modes
 	bindsym hyper_l mode "default"
 
+	bindsym --whole-window BTN_SIDE exec hexecute
 	# Exitl
 	bindsym Mod4+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
@@ -187,6 +194,9 @@ mode "audio mode" {
 	bindsym d exec pactl set-sink-volume \@DEFAULT_SINK@ -5%; mode "default"
 	bindsym f exec pactl set-sink-volume \@DEFAULT_SINK@ +5%; mode "default"
        	bindsym p exec mpc toggle; mode "default"
+    	bindsym Return mode "default"
+    	bindsym Escape mode "default"
+    	bindsym hyper_l mode "default"
 }
 
 # Resize

@@ -8,7 +8,7 @@ plugins:
   - musicbrainz
   #- fetchart 
   - bandcamp
-  - autobpm
+  #- autobpm
 
 paths:
     default: $albumartist/[$year] $album%aunique{}/$track $title
