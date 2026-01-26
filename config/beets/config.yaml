@@ -16,7 +16,7 @@ paths:
     comp: Compilations/$album%aunique{}/$track $title
 
 match:
-  strong_rec_thresh: 0.09
+  strong_rec_thresh: 0.13
 
 #fetchart:
 #  filesystem coverart itunes amazon albumart wikipedia
