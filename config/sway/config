@@ -17,7 +17,10 @@ set $color_background #00000000
 set $color_gray #5C1A19
 
 set $out-left HDMI-A-3
-set $out-right HDMI-A-2
+
+## need to figure out how to make this dynamic between systems.
+#set $out-right HDMI-A-2
+set $out-right LVDS-1
 
 # Workspaces
 workspace "q" output $out-left
@@ -100,7 +103,6 @@ mode "default" {
 	# home row
 	bindsym a mode "audio mode"
 	bindsym s exec grim -g "$(slurp)" - | swappy -f - -o ~/temp/$(date +%y-%m-%d_%h:%m:%S).png
-        bindsym shift+s splith
 	bindsym d exec seq 15 | xargs -I {} wtype -P Down
 	bindsym shift+d exec seq 15 | xargs -I {} wtype -P Up
 	bindsym f mode "interaction mode"
@@ -120,7 +122,8 @@ mode "default" {
 	# bottom row
 	bindsym z exec ""
 	bindsym Shift+x kill
-	bindsym c exec ""
+	bindsym c splitv 
+        bindsym shift+c splith
         bindsym v mode "resize mode"
 	bindsym b exec brightnessctl set 5%-
 	bindsym Shift+b exec brightnessctl set 5%+
