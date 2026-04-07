@@ -86,7 +86,7 @@ mode "default" {
 	# home row
 	bindsym $mod+a mode "audio mode"
 	bindsym $mod+s exec grim -g "$(slurp)" - | swappy -f - -o ~/temp/$(date +%y-%m-%d_%h:%m:%S).png
-	bindsym $mod+d exec seq 15 | xargs -I {} wtype -P Down
+	bindsym $mod+d exec $menu
 	bindsym $mod+shift+d exec seq 15 | xargs -I {} wtype -P Up
 	bindsym $mod+f exec ""
 	bindsym $mod+Shift+f fullscreen
