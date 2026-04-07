@@ -6,12 +6,9 @@ exec pactl set-sink-volume \@DEFAULT_SINK@ 100%
 set $term alacritty
 set $menu wofi --show=drun --lines=1 --prompt=="message" -b -i
 
-set $left h
-set $down j
-set $up k
-set $right l
+set $mod Super
 
-set $color_primary #E62100
+set $color_primary #EEEEEE
 set $color_text #FFFFFF
 set $color_background #00000000
 set $color_gray #5C1A19
@@ -36,14 +33,13 @@ workspace "p" output $out-right
 # Config
 seat * hide_cursor 1000
 seat * hide_cursor when-typing enable
-input * {
-	xkb_options caps:hyper
-}
 input "type:tablet_tool" map_to_output $out-right
 
+# Background
 output $out-right {
 	bg ~/documents/git/dotfiles/wall-horz.jpg fill
 }
+
 output $out-left {
 	transform 270
 	pos 0,0
@@ -68,124 +64,60 @@ gaps inner 30
 
 
 mode "default" {
-	# Numberkeys
-        bindsym 1 exec ""
-        bindsym 2 exec ""
-        bindsym 3 exec ""
-        bindsym 4 exec ""
-	bindsym 5 exec ""
-	bindsym 6 exec ""
-	bindsym 7 exec ""
-	bindsym 8 exec ""
-	bindsym 9 exec ""
-	bindsym 0 exec ""
-	bindsym minus exec ""
-	bindsym equal exec ""
 	# first row keys
-	bindsym q workspace "q"
-	bindsym w workspace "w"
-	bindsym e workspace "e"
-	bindsym r workspace "r"
-	bindsym Shift+q move container to workspace "q"
-	bindsym Shift+w move container to workspace "w"
-	bindsym Shift+e move container to workspace "e"
-	bindsym Shift+r move container to workspace "r"
-	bindsym t exec ""
-	bindsym y exec ""
-        bindsym u workspace "u"
-        bindsym i workspace "i"
-        bindsym o workspace "o"
-        bindsym p workspace "p"
-        bindsym Shift+u move container to workspace "u"
-        bindsym Shift+i move container to workspace "i"
-        bindsym Shift+o move container to workspace "o"
-        bindsym Shift+p move container to workspace "p"
+	bindsym $mod+q workspace "q"
+	bindsym $mod+w workspace "w"
+	bindsym $mod+e workspace "e"
+	bindsym $mod+r workspace "r"
+	bindsym $mod+Shift+q move container to workspace "q"
+	bindsym $mod+Shift+w move container to workspace "w"
+	bindsym $mod+Shift+e move container to workspace "e"
+	bindsym $mod+Shift+r move container to workspace "r"
+	bindsym $mod+t exec $term
+	bindsym $mod+y exec ""
+        bindsym $mod+u workspace "u"
+        bindsym $mod+i workspace "i"
+        bindsym $mod+o workspace "o"
+        bindsym $mod+p workspace "p"
+        bindsym $mod+Shift+u move container to workspace "u"
+        bindsym $mod+Shift+i move container to workspace "i"
+        bindsym $mod+Shift+o move container to workspace "o"
+        bindsym $mod+Shift+p move container to workspace "p"
 	# home row
-	bindsym a mode "audio mode"
-	bindsym s exec grim -g "$(slurp)" - | swappy -f - -o ~/temp/$(date +%y-%m-%d_%h:%m:%S).png
-	bindsym d exec seq 15 | xargs -I {} wtype -P Down
-	bindsym shift+d exec seq 15 | xargs -I {} wtype -P Up
-	bindsym f mode "interaction mode"
-	bindsym Shift+f fullscreen
-	bindsym g exec ""
-	bindsym $left focus left
-        bindsym $down focus down
-        bindsym $up focus up
-        bindsym $right focus right
-        bindsym Shift+$left move left
-        bindsym Shift+$down move down
-        bindsym Shift+$up move up
-        bindsym Shift+$right move right
- 	bindsym semicolon exec $term; mode "interaction mode"
-	bindsym colon exec ""
-	bindsym apostrophe exec ""
+	bindsym $mod+a mode "audio mode"
+	bindsym $mod+s exec grim -g "$(slurp)" - | swappy -f - -o ~/temp/$(date +%y-%m-%d_%h:%m:%S).png
+	bindsym $mod+d exec seq 15 | xargs -I {} wtype -P Down
+	bindsym $mod+shift+d exec seq 15 | xargs -I {} wtype -P Up
+	bindsym $mod+f exec ""
+	bindsym $mod+Shift+f fullscreen
+	bindsym $mod+g exec ""
+	bindsym $mod+h focus left
+        bindsym $mod+j focus down
+        bindsym $mod+k focus up
+        bindsym $mod+l focus right
+        bindsym $mod+Shift+h move left
+        bindsym $mod+Shift+j move down
+        bindsym $mod+Shift+k move up
+        bindsym $mod+Shift+l move right
 	# bottom row
-	bindsym z exec ""
-	bindsym Shift+x kill
-	bindsym c splitv 
-        bindsym shift+c splith
-        bindsym v mode "resize mode"
-	bindsym b exec brightnessctl set 5%-
-	bindsym Shift+b exec brightnessctl set 5%+
-	bindsym n floating toggle
-	bindsym Shift+n focus floating
-	bindsym m exec ""
-	bindsym comma exec ""
-	bindsym period exec ""
-	bindsym slash exec ""
+	bindsym $mod+slash exec ""
+	bindsym $mod+z exec ""
+	bindsym $mod+Shift+x kill
+	bindsym $mod+c splitv 
+        bindsym $mod+shift+c splith
+        bindsym $mod+v mode "resize mode"
+	bindsym $mod+b exec brightnessctl set 5%-
+	bindsym $mod+Shift+b exec brightnessctl set 5%+
+	bindsym $mod+n floating toggle
+	bindsym $mod+Shift+n focus floating
+	bindsym $mod+m exec ""
+	bindsym $mod+comma exec ""
+	bindsym $mod+period exec ""
 
 	# extra 
-	bindsym --whole-window BTN_SIDE exec hexecute
-	bindsym Space exec $menu; mode "interaction mode"
-	bindsym Tab focus next
-	bindsym Shift+Tab focus prev
-
-
-        # Workspace
-        # bindsym 0 workspace "0";
-        # bindsym 5 workspace "5";
-        # bindsym 6 workspace "6";
-        # bindsym 7 workspace "7";
-        # bindsym 8 workspace "8";
-        # bindsym 9 workspace "9";
-        # bindsym Shift+0 move container to workspace "0"
-        # bindsym Shift+5 move container to workspace "5"
-        # bindsym Shift+6 move container to workspace "6"
-        # bindsym Shift+7 move container to workspace "7"
-        # bindsym Shift+8 move container to workspace "8"
-        # bindsym Shift+9 move container to workspace "9"
-
-}
-
-# Focus
-mode "interaction mode" {
-	# Reload 
-	bindsym Mod4+Shift+c reload
-	bindsym Mod4+c exec $term -e vim .config/sway/config
-
-	# Modes
-	bindsym hyper_l mode "default"
-
-	bindsym --whole-window BTN_SIDE exec hexecute
-	# Exitl
-	bindsym Mod4+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-
-	# focus
-	bindsym Mod4+$left focus left
-	bindsym Mod4+$down focus down
-	bindsym Mod4+$up focus up
-	bindsym Mod4+$right focus right
-
-	# Tools
-	bindsym Shift_R exec hexecute
-	bindsym Alt+Tab focus next
-	bindsym Shift+Alt+Tab focus prev 
-	bindsym Mod4+Return exec $term
-	bindsym Mod4+Shift+q kill
-	bindsym Mod4+d exec $menu
-
-	# Make the current focus fullscreen
-	bindsym Mod4+f fullscreen
+	bindsym $mod+Tab focus next
+	bindsym $mod+Shift+Tab focus prev
+	bindsym $mod+Escape exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 }
 
 # Audio 
@@ -205,72 +137,23 @@ mode "audio mode" {
 # Resize
 mode "resize mode" {
     set $resizeunit 50px
-    bindsym $left resize shrink width $resizeunit
-    bindsym $down resize grow height $resizeunit
-    bindsym $up resize shrink height $resizeunit
-    bindsym $right resize grow width $resizeunit
+    bindsym h resize shrink width $resizeunit
+    bindsym j resize grow height $resizeunit
+    bindsym k resize shrink height $resizeunit
+    bindsym l resize grow width $resizeunit
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
-    bindsym hyper_l mode "default"
-}
-
-# Arrow
-mode "arrow mode" {
-    bindsym Escape mode "default"
-    bindsym hyper_l mode "default"
-    bindsym i mode "interaction mode"
-    bindsym v mode "selection"
-
-    bindsym $left exec wtype -P Left 
-    bindsym $right exec wtype -P Right 
-    bindsym $up exec wtype -P Up 
-    bindsym $down exec wtype -P Down 
-
-    bindsym 0 exec wtype -P Home
-    bindsym dollar exec wtype -P End 
-    bindsym b exec wtype -M ctrl -P left
-    bindsym e exec wtype -M ctrl -P right
-
-    bindsym Shift+j exec wtype -P Next
-    bindsym Shift+k exec wtype -P Prior
-
-    bindsym y exec wtype -M ctrl c 
-    bindsym Shift+y exec wtype -M ctrl x 
-    bindsym p exec wtype -M ctrl v 
-    bindsym u exec wtype -M ctrl z 
-    bindsym Shift+u exec wtype -M ctrl -M shift z 
-}
-
-# Selection
-mode selection {
-    bindsym $left exec wtype -M shift -P Left 
-    bindsym $right exec wtype -M shift -P Right 
-    bindsym $up exec wtype -M shift -P Up 
-    bindsym $down exec wtype -M shift -P Down 
-
-    bindsym 0 exec wtype -M shift -P Home
-    bindsym dollar exec wtype -M shift -P End 
-
-    bindsym b exec wtype -M ctrl -M shift -P left
-    bindsym e exec wtype -M ctrl -M shift -P right
-
-    bindsym ctrl+$up exec wtype -M ctrl -M shift -P Up 
-    bindsym ctrl+$down exec wtype -M ctrl -M shift -P Down 
-
-    bindsym Escape mode "arrow mode"
-    bindsym v mode "arrow mode"
-    bindsym hyper_l "default"
 }
 
 # Music
 mode music {
-    bindsym $left exec mpc prev
-    bindsym $down exec mpc pause
-    bindsym $up exec mpc play
-    bindsym $right exec mpc next
-    bindsym Shift+$left exec mpc seek -30
-    bindsym Shift+$right exec mpc seek +30
+    bindsym h exec mpc prev
+    bindsym j exec mpc pause
+    bindsym k exec mpc play
+    bindsym l exec mpc next
+    bindsym Shift+h exec mpc seek -30
+    bindsym Shift+l exec mpc seek +30
 #    bindsym a exec $term -e imv "$(echo /home/carrieanne/music/$(mpc current -f "%file%" | sed 's/\/[^\/]*$//'))"/*.{jpg,jpeg,png,gif,bmp,webm}
     bindsym m exec xdg-open ~/documents/music.ods
     bindsym t exec ario
