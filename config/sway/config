@@ -17,7 +17,8 @@ set $out-left HDMI-A-3
 
 ## need to figure out how to make this dynamic between systems.
 #set $out-right HDMI-A-2
-set $out-right LVDS-1
+set $out-left LVDS-1
+set $out-right HDMI-A-1
 
 # Workspaces
 workspace "q" output $out-left
@@ -41,9 +42,8 @@ output $out-right {
 }
 
 output $out-left {
-	transform 270
 	pos 0,0
-	bg ~/documents/git/dotfiles/wall-vert.jpg fill
+	bg ~/documents/git/dotfiles/wall-horz.jpg fill
 }
 focus_follows_mouse no
 # for_window [floating] floating disable
@@ -60,8 +60,7 @@ bar {
 }
 
 default_border pixel 2
-gaps inner 30
-
+gaps inner 15
 
 mode "default" {
 	# first row keys
