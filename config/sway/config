@@ -117,6 +117,20 @@ mode "default" {
 	bindsym $mod+Tab focus next
 	bindsym $mod+Shift+Tab focus prev
 	bindsym $mod+Escape exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+	bindcode 156 exec firefox https://e621.net/posts?tags=order%3Ahot+rating%3As
+
+	# Screen Keys
+	bindcode 162 exec wtype j
+	bindcode 161 exec wtype k
+	bindcode 149 mode "capital JK"
+	bindcode 160 exec echo 
+}
+
+mode "capital JK" {
+	bindcode 162 exec wtype J
+	bindcode 161 exec wtype K
+	bindcode 160 mode "default"
 }
 
 # Audio 
