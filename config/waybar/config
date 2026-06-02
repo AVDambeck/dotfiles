@@ -3,9 +3,9 @@
     "position": "bottom",
     "spacing": 8,
     "reload_style_on_change": true,
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-left": ["niri/workspaces", "sway/workspaces", "sway/mode"],
     "modules-center": [""],
-    "modules-right": ["mpd", "memory", "cpu", "battery", "pulseaudio", "clock#date", "clock"],
+    "modules-right": ["mpd",  "memory", "cpu", "temperature", "battery", "pulseaudio", "clock#date", "clock"],
     "mpd": {
 	    "format": "{artist} - {album} - {title} - ({elapsedTime:%M:%S}/{totalTime:%M:%S}) {songPosition}/{queueLength}",
 	    "format-stopped": ""
