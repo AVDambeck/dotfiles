@@ -1,0 +1,4 @@
+image=~/documents/git/dotfiles/lock.jpg
+scaling=fill
+show-failed-attempts
+ring-color=#ff00ff		
