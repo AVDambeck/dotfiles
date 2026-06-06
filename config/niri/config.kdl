@@ -209,10 +209,10 @@ layout {
 
 spawn-at-startup "waybar"
 // spawn-sh-at-startup "swaybg -i /home/carrieanne/documents/git/dotfiles/wall-horz.jpg"
-spawn-sh-at-startup "cd ~/documents/git/dotfiles/wallpapers/; while true; do swaybg -i $(ls | sort -R | tail -n1) & sleep 10m; pkill swaybg; done"
+spawn-sh-at-startup "cd ~/documents/git/dotfiles/wallpapers/; swaybg -i $(ls | sort -R | tail -n1)"
 
 
-spawn-sh-at-startup "cd ~/documents/solar; git pull; rm -rf ~/.cache/vim/swap/; alacritty -e vim ~/documents/solar/todo.md & alacritty -e tty-clock -c -C 1 & alacritty -e lavat -c red -b 5 & sleep 0.5; niri msg action consume-or-expel-window-left; sleep 0.5; alacritty -e btop & sleep 0.5; niri msg action maximize-column; niri msg action focus-column-first; niri msg action switch-preset-column-width; niri msg action switch-preset-column-width; "
+spawn-sh-at-startup "cd ~/documents/solar; git pull; rm -rf ~/.cache/vim/swap/; alacritty -e vim ~/documents/solar/todo.md & sleep 0.5; alacritty -e tty-clock -c -C 1 & alacritty -e lavat -c red -b 5 & sleep 0.5; niri msg action consume-or-expel-window-left; sleep 0.5; alacritty -e btop & sleep 0.5; niri msg action maximize-column; niri msg action focus-column-first; niri msg action switch-preset-column-width; niri msg action switch-preset-column-width; "
 
 window-rule {
 	match at-startup=true
