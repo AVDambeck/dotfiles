@@ -12,6 +12,7 @@ alias cls='clear; ls'
 alias cla='clear; !!'
 alias temp='rm -rf ~/temp/*; cd ~/temp'
 alias dotfile="cd ~/documents/dotfiles; clear"
+alias favdot="dotfile; vim config/niri/config.kdl"
 alias inscribe="hexecute -learn !!"
 alias grab="!! | wl-copy"
 PS1='\w $ '
