@@ -1,4 +1,4 @@
-cd ~/documents/git/dotfiles/
+cd ~/documents/dotfiles/
 cp -r config/* ~/.config/
 cp bashrc ~/.bashrc
 cp xinitrc ~/.xinitrc
