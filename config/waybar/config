@@ -3,21 +3,29 @@
     "position": "bottom",
     "spacing": 8,
     "reload_style_on_change": true,
-    "modules-left": ["niri/workspaces", "sway/workspaces", "sway/mode"],
+    "modules-left": ["niri/workspaces"],
     "modules-center": [""],
-    "modules-right": ["mpd",  "memory", "cpu", "temperature", "battery", "pulseaudio", "clock#date", "clock"],
+    "modules-right": ["mpd", "network",  "memory", "cpu", "temperature", "battery", "pulseaudio", "clock#date", "clock"],
     "mpd": {
 	    "format": "{artist} - {album} - {title} - ({elapsedTime:%M:%S}/{totalTime:%M:%S}) {songPosition}/{queueLength}",
 	    "format-stopped": ""
 
     },
+    "network": {
+	    "interface": "wlp2s0",
+	    "format": "{ifname}",
+	    "format-wifi": "{essid} {signalStrength}% ▲{bandwidthUpBits}▼{bandwidthDownBits}"
+//	    "format-ethernet": "{ifname}",
+//	    "format-disconnected": "disconnected"
+    },
     "memory": {
 	    "format": "{used:0.0f}/{total:0.0f}G"
     },
     "cpu": {
-	    "interval": 1,
-    	    "format": "{icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7}",
-     	    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+	    "interval": 10,
+	    "format": "cpu {usage}%"
+    	    //"format": "{icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7}",
+     	    //"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
     },
     "pulseaudio": {
 	    "format": "vol {volume}"
@@ -28,11 +36,7 @@
     "clock#date": {
 	    "format": "{:%F}"
     },
-    "sway/window": {
-        "max-length": 50
-    },
     "battery": {
-        "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""]
-    },
+        "format": "◈{capacity}%"
+    }
 }
