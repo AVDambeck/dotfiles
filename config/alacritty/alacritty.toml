@@ -1,8 +1,10 @@
 [font]
 size = 12.0
+normal = { family = "Monospace", style = "Regular" }
+offset = { x = 0, y = 0 }
 
 [colors.primary]
 background = "#000000"
 
 [window]
-opacity = 0.7
+opacity = 0.9
