@@ -38,12 +38,12 @@ input "type:tablet_tool" map_to_output $out-right
 
 # Background
 output $out-right {
-	bg ~/documents/dotfiles/wall-horz.jpg fill
+	#bg ~/documents/dotfiles/wall-horz.jpg fill
 }
 
 output $out-left {
 	pos 0,0
-	bg ~/documents/dotfiles/wall-horz.jpg fill
+	#bg ~/documents/dotfiles/wall-horz.jpg fill
 }
 focus_follows_mouse no
 # for_window [floating] floating disable
